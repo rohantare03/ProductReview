@@ -53,5 +53,15 @@ namespace ProductReviewLinq
                 Console.WriteLine("Liked :" + product.IsLike);
             }
         }
+        //<summary>
+        //UC2 : Top 3 Records
+        //</summary>
+        public int RetrieveTop3ByRating()
+        {
+            AddProductList();
+            var res = (from product in ProductReviewsList orderby product.Rating descending select product).Take(3).ToList();
+            DisplayProductReviewList();
+            return res.Count;
+        }
     }
 }

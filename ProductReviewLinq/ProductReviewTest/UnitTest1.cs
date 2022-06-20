@@ -24,5 +24,15 @@ namespace ProductReviewTest
             int actual = products.AddProductList();
             Assert.AreEqual(expected, actual);
         }
+        //<summary>
+        //UC2 : Retrieve
+        //</summary>
+        [Test]
+        public void RetrieveTop3_byRating_FromList()
+        {
+            int expected = 3;
+            var actual = products.RetrieveTop3ByRating();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
