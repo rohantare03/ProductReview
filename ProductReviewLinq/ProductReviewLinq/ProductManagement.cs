@@ -112,5 +112,19 @@ namespace ProductReviewLinq
             }
             return result;
         }
+        //<summary>
+        //UC6 : Skip first 5 parameter from the list
+        //</summary>
+        public string RetrieveProductReviewSkippingTop5()
+        {
+            string productsList = "";
+            AddProductList();
+            var result = (from product in ProductReviewsList orderby product.Rating descending select product).Skip(5).ToList();
+            foreach (var element in result)
+            {
+                productsList += element.ProductID + " ";
+            }
+            return productsList;
+        }
     }
 }
