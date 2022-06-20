@@ -34,5 +34,15 @@ namespace ProductReviewTest
             var actual = products.RetrieveTop3ByRating();
             Assert.AreEqual(expected, actual);
         }
+        //<summary>
+        //TC 3 : Retrive All Data by ratings and Product id
+        //</summary>
+        [Test]
+        public void TestMethodForRetrieveRecordsBasedOnRatingAndProductId()
+        {
+            string expected = "7 8 11 ";
+            string actual = products.RetrieveAllByRatingAndProductID();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

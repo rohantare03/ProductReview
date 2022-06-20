@@ -63,5 +63,24 @@ namespace ProductReviewLinq
             DisplayProductReviewList();
             return res.Count;
         }
+        //<summary>
+        //UC3 : Greater than 3
+        //</summary>
+        public string RetrieveAllByRatingAndProductID()
+        {
+            AddProductList();
+            string productsList = "";
+            var productList = (from product in ProductReviewsList where product.Rating > 3 && (product.ProductID == 1 || product.ProductID == 4 || product.ProductID == 9) select product);
+            foreach (var product in productList)
+            {
+                productsList += product.UserID + " ";
+                Console.WriteLine("Product ID :" + product.ProductID);
+                Console.WriteLine("User ID :" + product.UserID);
+                Console.WriteLine("Rating :" + product.Rating);
+                Console.WriteLine("Review :" + product.Review);
+                Console.WriteLine("Liked :" + product.IsLike);
+            }
+            return productsList;
+        }
     }
 }
