@@ -97,5 +97,20 @@ namespace ProductReviewLinq
             }
             return productsList;
         }
+        //<summary>
+        //UC5 : ProductID and review
+        //</summary>
+        public string RetrieveProductIdAndReview()
+        {
+            string result = "";
+            AddProductList();
+            var productList = ProductReviewsList.Select(product => new { ProductID = product.ProductID, Review = product.Review }).ToList();
+            foreach (var element in productList)
+            {
+                Console.WriteLine("ProductId: " + element.ProductID + "\tReview: " + element.Review);
+                result += element.ProductID + " ";
+            }
+            return result;
+        }
     }
 }
