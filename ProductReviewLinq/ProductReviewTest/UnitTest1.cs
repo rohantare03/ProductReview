@@ -94,5 +94,15 @@ namespace ProductReviewTest
             string actual = products.RetrievedetailsWithLikes();
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// TC 10: Average of rating based on ProductId
+        /// </summary>
+        [Test]
+        public void TestMethodForReturns_AverageofRating()
+        {
+            string expected = "2.3 1 3.5 2 3 4 4.2 1 1 2 3 2 3.3 ";
+            string actual = products.RetrieveAverageRating();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

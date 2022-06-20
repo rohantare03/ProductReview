@@ -163,5 +163,20 @@ namespace ProductReviewLinq
             }
             return productsList;
         }
+        //<summary>
+        //UC10 : Average rating
+        //</summary>
+        public string RetrieveAverageRating()
+        {
+            string result = "";
+            CreateDataTable();
+            var res = from product in productdt.AsEnumerable() group product by product.Field<int>("ProductId") into temp select new { productid = temp.Key, Average = Math.Round(temp.Average(x => x.Field<int>("Rating")), 1) };
+            foreach (var product in res)
+            {
+                Console.WriteLine("Product id: {0} Average Rating: {1}", product.productid, product.Average);
+                result += product.Average + " ";
+            }
+            return result;
+        }
     }
 }
